@@ -38,7 +38,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install deps
-        if: ${{ steps.cache-nodemodules.outputs.cache-hit != 'true' }}
         run: npm ci && cd devops-ci-cd && npm ci
       - name: Run linters
         run: npm run lint && npm run prettier
