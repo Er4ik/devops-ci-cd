@@ -42,5 +42,8 @@ jobs:
         run: npm ci && cd devops-ci-cd && npm ci
       - name: Run linters
         run: npm run lint && npm run prettier
-      - name: Build docker image
-        run: npm run build
+      - name: Build and push docker image
+        run: |
+          echo "${{secrets.DOCKER_PWD}}" | docker login -u "er4ik" --password-stdin
+          npm run build
+          npm run start:docker-hub
