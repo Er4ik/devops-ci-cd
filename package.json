@@ -1,0 +1,34 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:js": "cd devops-ci-cd && docker build -f Dockerfile -t js:1 . && docker run --rm -it -p 80:3000 --name devops-ci-cd --memory=200M --cpus=1.5 js:1",
+    "lint": "eslint --ext .js . --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --check . --ignore-path .gitignore",
+    "prettier:fix": "prettier --write . --ignore-path .gitignore",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Er4ik/ArchitectureSoftware_Lab3.git"
+  },
+  "author": "Ervin Osmanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Er4ik/ArchitectureSoftware_Lab3/issues"
+  },
+  "homepage": "https://github.com/Er4ik/ArchitectureSoftware_Lab3#readme",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-metarhia": "^8.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-sonarjs": "^0.16.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1"
+  }
+}
