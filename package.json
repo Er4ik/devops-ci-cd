@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd devops-ci-cd && docker build -f Dockerfile -t ci-cd/v1 .",
     "start": "docker run --rm -it -p 80:3000 --name devops-ci-cd --memory=200M --cpus=1.5 ci-cd/v1",
-    "start:docker-hub": "docker tag ci-cd/v1 er4ik/devops-genesis && docker push ci-cd/v1",
+    "start:docker-hub": "docker tag ci-cd/v1 er4ik/devops-genesis && docker push er4ik/devops-genesis:ci-cd/v1",
     "lint": "eslint --ext .js . --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier --check . --ignore-path .gitignore",
