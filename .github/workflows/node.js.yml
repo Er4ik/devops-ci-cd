@@ -30,6 +30,7 @@ jobs:
         uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
+          docker-pwd: "${{secrets.DOCKER_PWD}}"
         with:
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
@@ -43,6 +44,6 @@ jobs:
         run: npm run lint && npm run prettier
       - name: Build and push docker image
         run: |
-          echo "${{secrets.DOCKER_PWD}}" | docker login -u "er4ik" --password-stdin
+          docker login -u "er4ik" -p "$docker-pwd"
           npm run build
           npm run start:docker-hub
