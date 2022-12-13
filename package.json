@@ -25,7 +25,6 @@
   "homepage": "https://github.com/Er4ik/ArchitectureSoftware_Lab3#readme",
   "devDependencies": {
     "eslint": "^8.25.0",
-    "eslint-config-metarhia": "^8.1.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-sonarjs": "^0.16.0",
     "husky": "^8.0.1",
